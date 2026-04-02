@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Instrument Serif", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-background: #0a0a0a;
+  --color-foreground: #f5f5f5;
+  --color-muted: #737373;
+  --color-border: #262626;
+  --color-accent: #ffffff;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif tracking-tight;
+  }
+}
+
+@layer components {
+  .editorial-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1.5rem;
+  }
+
+  .glass-nav {
+    @apply sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border;
+  }
+
+  .btn-primary {
+    @apply bg-accent text-background px-4 py-2 rounded-full font-medium hover:opacity-90 transition-opacity disabled:opacity-50;
+  }
+
+  .btn-secondary {
+    @apply border border-border px-4 py-2 rounded-full font-medium hover:bg-border transition-colors disabled:opacity-50;
+  }
+
+  .post-content {
+    @apply prose prose-invert font-serif max-w-none;
+  }
+
+  .post-content h1, .post-content h2, .post-content h3 {
+    @apply font-serif mt-12 mb-6;
+  }
+
+  .post-content p {
+    @apply text-lg leading-relaxed mb-6 text-foreground/90;
+  }
+
+  .post-content blockquote {
+    @apply border-l-2 border-accent pl-6 italic text-2xl font-serif my-12;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-border rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-muted;
+}

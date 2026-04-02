@@ -1,0 +1,8 @@
+{
+  "name": "Aether",
+  "description": "A premium, editorial blogging platform for immersive storytelling and artistic expression.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
